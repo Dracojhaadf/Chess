@@ -1,77 +1,106 @@
-Unicode Chess with Pygame
-This is a fully functional, lightweight Chess engine written in Python using the pygame library. It features a clean UI using Unicode character symbols for pieces and supports advanced chess rules like Castling, En Passant, and Pawn Promotion.
+♟️ Unicode Chess (Pygame)
 
-🚀 Features
-Complete Move Logic: Supports all standard moves for Pawns, Rooks, Knights, Bishops, Queens, and Kings.
+A fully functional, lightweight Chess engine built in Python using Pygame, featuring a clean UI rendered entirely with Unicode chess symbols.
+The game faithfully implements all standard chess rules, including advanced mechanics like Castling, En Passant, and Pawn Promotion, while maintaining smooth gameplay and clear visual feedback.
 
-Special Moves:
+✨ Features
+♜ Complete Move Logic
 
-Castling: King and Queen-side castling logic (ensures king doesn't move through check).
+Supports all standard chess piece movements:
 
-En Passant: Allows pawn capture on the special diagonal move following an opponent's double-step.
+Pawn
 
-Pawn Promotion: Interactive UI popup to choose between Queen, Rook, Bishop, or Knight when a pawn reaches the final rank.
+Rook
 
-Game State Detection:
+Knight
 
-Check/Checkmate: Visual indicators for when a king is under attack.
+Bishop
 
-Stalemate: Automatic detection of draws when no legal moves remain.
+Queen
 
-Visual Highlights: Selected pieces and valid target squares are highlighted for better playability.
+King
+
+♞ Special Moves
+
+Castling
+
+King-side and Queen-side castling
+
+Prevents illegal castling through or into check
+
+En Passant
+
+Correctly handles the special pawn capture after a double-step move
+
+Pawn Promotion
+
+Interactive UI popup when a pawn reaches the final rank
+
+Choose between Queen, Rook, Bishop, or Knight
+
+♚ Game State Detection
+
+Check & Checkmate
+
+Visual indication when a king is under attack
+
+Stalemate
+
+Automatically detects drawn positions when no legal moves remain
+
+🎨 Visual Enhancements
+
+Highlighted selected pieces
+
+Highlighted valid moves
+
+Clear check indicators for better readability and gameplay flow
 
 🛠️ Installation & Requirements
 Prerequisites
+
 Python 3.x
 
-Pygame: The library used for rendering and event handling.
+Pygame
 
-Setup
-Install Pygame:
-
-Bash
-
+Install Pygame
 pip install pygame
-Ensure Font Support: The game uses Unicode symbols (♚, ♞, etc.). Most modern OS fonts (like Segoe UI Symbol on Windows or DejaVu Sans on Linux) support these. If pieces appear as blocks, ensure your system has a Unicode-compatible font installed.
+
+Unicode Font Support
+
+The game uses Unicode chess symbols (♚ ♞ ♛ etc.).
+Most modern operating systems already support these:
+
+Windows: Segoe UI Symbol
+
+Linux: DejaVu Sans
+
+macOS: Default system fonts
+
+⚠️ If pieces appear as empty squares or blocks, ensure a Unicode-compatible font is installed on your system.
 
 🎮 How to Play
-Run the Game:
-
-Bash
-
+Run the Game
 python chess_game.py
-Controls:
 
-Left Click: Select a piece or a destination square.
+Controls
 
-Promotion: Click one of the four symbols that appear on the top/bottom bar when a pawn reaches the end.
+Left Click
 
-R Key: Reset the game at any time.
+Select a piece
 
-Visual Cues:
+Move a piece to a valid square
 
-Yellow: Currently selected piece.
+Pawn Promotion
 
-Green: Valid moves for the selected piece.
+Click one of the four piece symbols shown on the top/bottom bar
 
-Red: The King is in check, or the piece that is delivering the check.
+R Key
 
-📂 Code Structure
-Piece Class: Manages individual piece data (color, type, position, and movement history).
+Reset the game at any time
 
-ChessGame Class: The "Brain" of the application. It manages the board state, move validation (including "move simulation" to prevent moving into check), and turn logic.
-
-Drawing Functions: Modular functions to render the board, pieces, and UI overlays independently.
-
-Main Loop: Handles the 60 FPS update cycle and event processing.
-
-🧪 Implementation Notes: Move Validation
-The engine uses a simulation-based approach to validate legal moves. When you click a piece:
-
-It calculates all "pseudo-legal" moves based on the piece type.
-
-It temporarily "executes" the move on a ghost board.
-
-It checks if the friendly King is under attack in that new state.
-
-If the King is safe, the move is added to the final valid_moves list.
+Visual Cues
+Color	Meaning
+🟨 Yellow	Currently selected piece
+🟩 Green	Valid moves for selected piece
+🟥 Red	King in check or checking piece
